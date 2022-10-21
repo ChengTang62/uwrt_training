@@ -21,7 +21,7 @@ namespace my_components
     private:
         rclcpp::Service<my_components::srv::ResetMessage>::SharedPtr service_;
         rclcpp::Client<turtlesim::srv::TeleportAbsolute>::SharedPtr client_;
-        void service_callback(const std::shared_ptr<my_components::srv::ResetMessage::Request> request, std::shared_ptr<pubsub_components::srv::ResetMessage::Response> response);
+        void service_callback(const std::shared_ptr<my_components::srv::ResetMessage::Request> request, std::shared_ptr<my_components::srv::ResetMessage::Response> response);
     };
 }
 #endif

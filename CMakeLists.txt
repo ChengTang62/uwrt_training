@@ -12,8 +12,9 @@ find_package(rclcpp_components REQUIRED)
 find_package(composition REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(turtlesim REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
-# find_package(custom_interfaces REQUIRED)
+find_package(my_components REQUIRED)
 
 include_directories(include)
 
@@ -69,19 +70,19 @@ rclcpp_components_register_nodes(clear_component "my_components::clear")
 set(node_plugins "${node_plugins}my_components::clear;$<TARGET_FILE:clear_component>\n")
 
 
-# add_library(reset_component SHARED src/reset_component.cpp)
-# target_compile_definitions(reset_component PRIVATE "COMPOSITION_BUILDING_DLL")
-# ament_target_dependencies(reset_component
-#   "rclcpp"
-#   "rclcpp_components"
-#   "geometry_msgs"
-#   "turtlesim"
-#   "std_msgs"
-#   # "my_components"
-# )
+add_library(reset_component SHARED src/reset_component.cpp)
+target_compile_definitions(reset_component PRIVATE "COMPOSITION_BUILDING_DLL")
+ament_target_dependencies(reset_component
+  "rclcpp"
+  "rclcpp_components"
+  "geometry_msgs"
+  "turtlesim"
+  "std_msgs"
+  "my_components"
+)
 
-# rclcpp_components_register_nodes(reset_component "my_components::reset")
-# set(node_plugins "${node_plugins}my_components::reset;$<TARGET_FILE:reset_component>\n")
+rclcpp_components_register_nodes(reset_component "my_components::reset")
+set(node_plugins "${node_plugins}my_components::reset;$<TARGET_FILE:reset_component>\n")
 
 
 # Install launch files.
@@ -93,7 +94,7 @@ install(DIRECTORY
 
 install(TARGETS
   publisher_component
-  # reset_component
+  reset_component
   clear_component
   spawn_component
   # listener_component

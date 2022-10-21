@@ -23,14 +23,14 @@ def generate_launch_description():
                 package='my_components',
                 plugin='my_components::publisherNode',
                 name='publisher'),
-            ComposableNode(
-                package='my_components',
-                plugin='my_components::clear',
-                name='clear'),
             # ComposableNode(
             #     package='my_components',
-            #     plugin='my_components::reset',
-            #     name='reset'),
+            #     plugin='my_components::clear',
+            #     name='clear'),
+            ComposableNode(
+                package='my_components',
+                plugin='my_components::reset',
+                name='reset'),
         ],
         output='screen',
     )
