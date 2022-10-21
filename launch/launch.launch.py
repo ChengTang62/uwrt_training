@@ -19,10 +19,10 @@ def generate_launch_description():
             #     package='my_components',
             #     plugin='my_components::Listener',
             #     name='listener'),
-            # ComposableNode(
-            #     package='my_components',
-            #     plugin='my_components::publisherNode',
-            #     name='publisher'),
+            ComposableNode(
+                package='my_components',
+                plugin='my_components::publisherNode',
+                name='publisher'),
             ComposableNode(
                 package='my_components',
                 plugin='my_components::clear',

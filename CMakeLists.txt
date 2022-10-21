@@ -17,16 +17,16 @@ find_package(rosidl_default_generators REQUIRED)
 
 include_directories(include)
 
-# add_library(publisher_component SHARED src/publisher_component.cpp)
-# target_compile_definitions(publisher_component PRIVATE "COMPOSITION_BUILDING_DLL")
-# ament_target_dependencies(publisher_component
-#   "rclcpp"
-#   "rclcpp_components"
-#   "geometry_msgs"
-# )
+add_library(publisher_component SHARED src/publisher_component.cpp)
+target_compile_definitions(publisher_component PRIVATE "COMPOSITION_BUILDING_DLL")
+ament_target_dependencies(publisher_component
+  "rclcpp"
+  "rclcpp_components"
+  "geometry_msgs"
+)
 
-# rclcpp_components_register_nodes(publisher_component "my_components::publisherNode")
-# set(node_plugins "${node_plugins}my_components::publisherNode;$<TARGET_FILE:publisher_component>\n")
+rclcpp_components_register_nodes(publisher_component "my_components::publisherNode")
+set(node_plugins "${node_plugins}my_components::publisherNode;$<TARGET_FILE:publisher_component>\n")
 
 
 add_library(listener_component SHARED src/listener_component.cpp)
@@ -92,7 +92,7 @@ install(DIRECTORY
 
 
 install(TARGETS
-  # publisher_component
+  publisher_component
   # reset_component
   clear_component
   spawn_component
@@ -114,7 +114,7 @@ if(BUILD_TESTING)
 endif()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  # "srv/ResetMessage.srv"
+  "srv/ResetMessage.srv"
   "msg/DistanceMessage.msg"
 )
 
