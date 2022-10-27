@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
+find_package(action_msgs REQUIRED)
 find_package(composition REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(turtlesim REQUIRED)
@@ -132,6 +133,7 @@ endif()
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ResetMessage.srv"
   "msg/DistanceMessage.msg"
+  "action/Move.action"
 )
 
 ament_package()
