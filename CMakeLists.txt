@@ -85,6 +85,20 @@ rclcpp_components_register_nodes(reset_component "my_components::reset")
 set(node_plugins "${node_plugins}my_components::reset;$<TARGET_FILE:reset_component>\n")
 
 
+add_library(distance_component SHARED src/distance_component.cpp)
+target_compile_definitions(distance_component PRIVATE "COMPOSITION_BUILDING_DLL")
+ament_target_dependencies(distance_component
+  "rclcpp"
+  "rclcpp_components"
+  "turtlesim"
+  "std_msgs"
+  "turtlesim"
+  "my_components"
+)
+
+rclcpp_components_register_nodes(distance_component "my_components::distance")
+set(node_plugins "${node_plugins}my_components::distance;$<TARGET_FILE:distance_component>\n")
+
 # Install launch files.
 install(DIRECTORY
   launch
@@ -97,6 +111,7 @@ install(TARGETS
   reset_component
   clear_component
   spawn_component
+  distance_component
   # listener_component
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib

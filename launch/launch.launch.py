@@ -31,6 +31,10 @@ def generate_launch_description():
                 package='my_components',
                 plugin='my_components::reset',
                 name='reset'),
+            ComposableNode(
+                package='my_components',
+                plugin='my_components::distance',
+                name='distance'),
         ],
         output='screen',
     )
