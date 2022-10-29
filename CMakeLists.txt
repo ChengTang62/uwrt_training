@@ -135,10 +135,4 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/ResetMessage.srv"
-  "msg/DistanceMessage.msg"
-  "action/Move.action"
-)
-
 ament_package()

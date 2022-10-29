@@ -1,7 +1,0 @@
-geometry_msgs/Vector3 coord
----
-uint64 duration
----
-float32 x 
-float32 y
-float32 angle
