@@ -11,30 +11,34 @@ def generate_launch_description():
         package='rclcpp_components',
         executable='component_container',
         composable_node_descriptions=[
-            ComposableNode(
-                package='my_components',
-                plugin='my_components::spawn',
-                name='spawn'),
             # ComposableNode(
-            #     package='my_components',
-            #     plugin='my_components::Listener',
+            #     package='uwrt_training',
+            #     plugin='uwrt_training::spawn',
+            #     name='spawn'),
+            # ComposableNode(
+            #     package='uwrt_training',
+            #     plugin='uwrt_training::Listener',
             #     name='listener'),
-            ComposableNode(
-                package='my_components',
-                plugin='my_components::publisherNode',
-                name='publisher'),
             # ComposableNode(
-            #     package='my_components',
-            #     plugin='my_components::clear',
+            #     package='uwrt_training',
+            #     plugin='uwrt_training::publisherNode',
+            #     name='publisher'),
+            # ComposableNode(
+            #     package='uwrt_training',
+            #     plugin='uwrt_training::clear',
             #     name='clear'),
             ComposableNode(
-                package='my_components',
-                plugin='my_components::reset',
+                package='uwrt_training',
+                plugin='uwrt_training::reset',
                 name='reset'),
-            ComposableNode(
-                package='my_components',
-                plugin='my_components::distance',
-                name='distance'),
+            # ComposableNode(
+            #     package='uwrt_training',
+            #     plugin='uwrt_training::distance',
+            #     name='distance'),
+            # ComposableNode(
+            #     package='uwrt_training',
+            #     plugin='uwrt_training::Move',
+            #     name='move'),
         ],
         output='screen',
     )

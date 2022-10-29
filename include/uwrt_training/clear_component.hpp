@@ -6,10 +6,10 @@
 #include <vector>
 
 #include <rclcpp/rclcpp.hpp>
-#include "my_components/visibility_control.h"
+#include "uwrt_training/visibility_control.h"
 #include <turtlesim/srv/kill.hpp>
 
-namespace my_components
+namespace uwrt_training
 {
     class clear : public rclcpp :: Node
     {

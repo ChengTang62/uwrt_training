@@ -2,9 +2,9 @@
 #define COMPOSITION_DISTANCE_HPP_
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
-#include <my_components/msg/distance_message.hpp>
+#include <custom_interfaces/msg/distance_message.hpp>
 #include <turtlesim/msg/pose.hpp>
-namespace my_components
+namespace uwrt_training
 {
     class distance : public rclcpp::Node
     {
@@ -12,7 +12,7 @@ namespace my_components
         rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr stationary_sub_;
         rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr moving_sub_;
 
-        rclcpp::Publisher<my_components::msg::DistanceMessage>::SharedPtr pub_;
+        rclcpp::Publisher<custom_interfaces::msg::DistanceMessage>::SharedPtr pub_;
         rclcpp::TimerBase::SharedPtr timer_;
 
         float stationary_x;
@@ -25,6 +25,6 @@ namespace my_components
     public:
         explicit distance(const rclcpp::NodeOptions &options);
     };
-} // namespace my_components
+}
 
 #endif 

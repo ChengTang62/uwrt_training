@@ -7,11 +7,11 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include <my_components/srv/reset_message.hpp>
-#include <my_components/visibility_control.h>
+#include <custom_interfaces/srv/reset_message.hpp>
+#include <uwrt_training/visibility_control.h>
 #include <turtlesim/srv/teleport_absolute.hpp>
 
-namespace my_components
+namespace uwrt_training
 {
     class reset : public rclcpp::Node
     {
@@ -19,9 +19,9 @@ namespace my_components
         explicit reset(const rclcpp::NodeOptions &options);
 
     private:
-        rclcpp::Service<my_components::srv::ResetMessage>::SharedPtr service_;
+        rclcpp::Service<custom_interfaces::srv::ResetMessage>::SharedPtr service_;
         rclcpp::Client<turtlesim::srv::TeleportAbsolute>::SharedPtr client_;
-        void service_callback(const std::shared_ptr<my_components::srv::ResetMessage::Request> request, std::shared_ptr<my_components::srv::ResetMessage::Response> response);
+        void service_callback(const std::shared_ptr<custom_interfaces::srv::ResetMessage::Request> request, std::shared_ptr<custom_interfaces::srv::ResetMessage::Response> response);
     };
 }
 #endif

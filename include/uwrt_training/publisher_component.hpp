@@ -1,11 +1,11 @@
 #ifndef COMPOSITION_PUBLISHER_COMPONENT_HPP_
 #define COMPOSITION_PUBLISHER_COMPONENT_HPP_
 
-#include "my_components/visibility_control.h"
+#include "uwrt_training/visibility_control.h"
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 
-namespace my_components
+namespace uwrt_training
 {
     class publisherNode : public rclcpp::Node
     {

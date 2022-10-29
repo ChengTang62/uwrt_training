@@ -1,4 +1,4 @@
-#include "my_components/publisher_component.hpp"
+#include "uwrt_training/publisher_component.hpp"
 #include <chrono>
 #include <memory>
 #include <utility>
@@ -7,7 +7,7 @@
 #include "geometry_msgs/msg/twist.hpp"
 
 using namespace std::chrono_literals;
-namespace my_components
+namespace uwrt_training
 {
     publisherNode::publisherNode(const rclcpp::NodeOptions &options) : Node("publisher", options)
     {
@@ -28,4 +28,4 @@ namespace my_components
 
 #include "rclcpp_components/register_node_macro.hpp"
 
-RCLCPP_COMPONENTS_REGISTER_NODE(my_components::publisherNode)
+RCLCPP_COMPONENTS_REGISTER_NODE(uwrt_training::publisherNode)

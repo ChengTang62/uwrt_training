@@ -1,9 +1,9 @@
 #include <memory>
-#include <my_components/spawn_component.hpp>
+#include <uwrt_training/spawn_component.hpp>
 
 using namespace std::chrono_literals;
 
-namespace my_components
+namespace uwrt_training
 {
     spawn::spawn(const rclcpp::NodeOptions &options) : Node("spawn", options)
     {
@@ -46,4 +46,4 @@ namespace my_components
     }
 }
 #include <rclcpp_components/register_node_macro.hpp>
-RCLCPP_COMPONENTS_REGISTER_NODE(my_components::spawn)
+RCLCPP_COMPONENTS_REGISTER_NODE(uwrt_training::spawn)

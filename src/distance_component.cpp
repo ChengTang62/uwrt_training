@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>
-#include "my_components/distance_component.hpp"
+#include "uwrt_training/distance_component.hpp"
 #include <chrono>
 #include <memory>
 #include <utility>
@@ -9,7 +9,7 @@
 #include "std_msgs/msg/string.hpp"
 
 using namespace std::chrono_literals;
-namespace my_components
+namespace uwrt_training
 {
     distance::distance(const rclcpp::NodeOptions &options) : Node("distance", options)
     {
@@ -27,7 +27,7 @@ namespace my_components
             this->stationary_y = msg->y;
             std::flush(std::cout);
         };
-        pub_ = create_publisher<my_components::msg::DistanceMessage>("/distance", 10);
+        pub_ = create_publisher<custom_interfaces::msg::DistanceMessage>("/distance", 10);
         timer_ = create_wall_timer(1s, std::bind(&distance::on_timer, this));
         moving_sub_ = create_subscription<turtlesim::msg::Pose>("/moving_turtle/pose", 10, callback_moving);
         stationary_sub_ = create_subscription<turtlesim::msg::Pose>("/stationary_turtle/pose", 10, callback_stationary);
@@ -38,7 +38,7 @@ namespace my_components
         double diff_x{abs(this->stationary_x - this->moving_x)};
         double diff_y{abs(this->stationary_y - this->moving_y)};
 
-        auto msg = std::make_unique<my_components::msg::DistanceMessage>();
+        auto msg = std::make_unique<custom_interfaces::msg::DistanceMessage>();
         if (diff_x && diff_y)
         {
             msg->x = diff_x;
@@ -56,4 +56,4 @@ namespace my_components
 
 #include "rclcpp_components/register_node_macro.hpp"
 
-RCLCPP_COMPONENTS_REGISTER_NODE(my_components::distance)
+RCLCPP_COMPONENTS_REGISTER_NODE(uwrt_training::distance)

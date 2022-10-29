@@ -1,7 +1,7 @@
 #ifndef COMPOSITION_SPAWN_COMPONENT_HPP_
 #define COMPOSITION_SPAWN_COMPONENT_HPP_
 
-#include "my_components/visibility_control.h"
+#include "uwrt_training/visibility_control.h"
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include <cstdlib>
@@ -11,7 +11,7 @@
 #include <vector>
 #include <turtlesim/srv/spawn.hpp>
 
-namespace my_components
+namespace uwrt_training
 {
     class spawn : public rclcpp::Node
     {
